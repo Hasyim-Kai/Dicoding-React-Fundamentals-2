@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Playfair Display", Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
