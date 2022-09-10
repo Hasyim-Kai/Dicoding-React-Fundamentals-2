@@ -1,0 +1,1 @@
+export const transitoinStyle = `transition-all duration-300 ease-in-out`;
