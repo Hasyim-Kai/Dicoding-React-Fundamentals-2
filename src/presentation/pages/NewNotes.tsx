@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { addNote } from "../../infrastructure/data/local-data";
+import { transitoinStyle } from "../utils/utils-style";
 
 export default function NewNotes() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function NewNotes() {
       <label htmlFor=""></label>
       <textarea cols={30} rows={10} placeholder="Enter the Description" onChange={onDescChange} className={inputStyle} required></textarea>
 
-      <button className="py-4 px-7 text-4xl mt-16 bg-black text-white shadow-lg">Add</button>
+      <button className={`py-3 px-7 text-4xl mt-16 border-b border-black hover:bg-black hover:text-white hover:shadow-lg ${transitoinStyle}`}>Add</button>
     </form>
   </main>
 }

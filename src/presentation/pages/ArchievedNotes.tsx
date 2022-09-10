@@ -3,6 +3,6 @@ import NotesList from "../components/NotesList"
 
 export default function ArchievedNotes() {
     return <main className="">
-        <NotesList notesArray={getArchivedNotes()} />
+        <NotesList notesParam={getArchivedNotes()} />
     </main>
 }

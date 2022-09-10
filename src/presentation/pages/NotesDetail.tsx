@@ -25,13 +25,13 @@ export default function NoteDetail() {
 
   useEffect(() => { setNote(getNote(id)) }, [])
 
-  return <main className="max-w-3xl mx-auto my-12">
+  return <main className="max-w-3xl mx-12 lg:mx-auto my-12">
     {note && (<>
       <h1 className='text-5xl'>{note.title}</h1>
       <h1 className='text-xl mt-4'><i>{formatDate(note.createdAt)}</i></h1>
       <h1 className='text-xl mt-6'>{note.body}</h1>
 
-      <div className="flex justify-around mt-16">
+      <div className="flex justify-around mt-16 pt-8 border-t-2">
         {note.archived 
           ? <button onClick={() => handleUnarchieve(id)} className='text-xl text-gray-500 hover:text-gray-800'>Unarchieve</button>
           : <button onClick={() => handleArchieve(id)} className='text-xl text-gray-500 hover:text-gray-800'>Archieve</button>}
