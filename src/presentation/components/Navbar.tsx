@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
+    const location = useLocation();
     const [isMobileNavOpen, setMobileNavOpen] = useState(false)
     function handleSetMobileNavOpen() { setMobileNavOpen(!isMobileNavOpen) }
     const navLinkStyle = ({ isActive }: { isActive: boolean }) => "flex px-4 py-2 " + (isActive ? "font-semibold" : "font-medium")
 
-    return <header className='sticky top-0'>
+    return location.pathname === '/login' || location.pathname === '/register' ? null 
+    : <header className='sticky top-0'>
         <nav className="shadow-md w-full border-b border-gray-600 backdrop-filter backdrop-blur-sm bg-opacity-60">
             {/* container */}
             <div className="container flex flex-wrap justify-between px-4 py-2 mx-auto lg:space-x-4">
