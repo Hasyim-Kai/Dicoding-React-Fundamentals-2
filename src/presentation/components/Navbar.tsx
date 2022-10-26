@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
     const [isMobileNavOpen, setMobileNavOpen] = useState(false)
@@ -27,6 +28,7 @@ const Navbar = () => {
                         <NavLink to="/" className={navLinkStyle}>Notes</NavLink>
                         <NavLink to="archieved" className={navLinkStyle}>Archieved</NavLink>
                         <NavLink to="new-note" className={navLinkStyle}>+ New Note</NavLink>
+                        <ThemeToggle/>
                     </ul>
                 </div>
             </div>
