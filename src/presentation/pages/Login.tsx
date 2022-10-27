@@ -1,12 +1,13 @@
 import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import ThemeContext from "../../app/Context/Themecontext";
+import ThemeContext from "../../app/Context/ThemeContext";
+import UserContext from "../../app/Context/UserContext";
 import { login } from "../../infrastructure/data/api-data";
-import { addNote } from "../../infrastructure/data/local-data";
 import { transitoinStyle } from "../utils/utils-style";
 
 export default function Login() {
   const { theme } = useContext(ThemeContext)
+  const user = useContext(UserContext)
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("")
   const [pwd, setPwd] = useState<string>("")
@@ -17,7 +18,10 @@ export default function Login() {
   async function handleSubmit(e: any) {
     e.preventDefault()
     const response = await login({ email, password: pwd })
-    response.error === true ? null : navigate('/')
+    if(!response.error){
+      navigate('/');
+      user.toggleUser(response.data)
+    }
   }
 
   const inputStyle = `mt-4 w-1/3 p-2 border-b focus:outline-none ${theme === 'light' ? 'border-black' : 'bg-gray-900 text-white border-white'}`

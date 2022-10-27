@@ -1,10 +1,12 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import ThemeContext from "../../app/Context/Themecontext";
-import { addNote } from "../../infrastructure/data/local-data";
+import ThemeContext from "../../app/Context/ThemeContext";
+import UserContext from "../../app/Context/UserContext";
+import { addNote } from "../../infrastructure/data/api-data";
 import { transitoinStyle } from "../utils/utils-style";
 
 export default function NewNotes() {
+  const { user } = useContext(UserContext)
   const { theme } = useContext(ThemeContext)
   const navigate = useNavigate();
   const [noteTitle, setNoteTitle] = useState<string>("")
@@ -18,6 +20,10 @@ export default function NewNotes() {
     addNote({ title: noteTitle, body: noteDesc })
     navigate('/')
   }
+
+  useEffect(() => { 
+    if(user.accessToken === undefined){ navigate('/login'); } 
+  }, [])
 
   const inputStyle = `w-2/3 p-2 border-b focus:outline-none ${theme === 'light' ? 'border-black' : 'bg-gray-900 text-white border-white'}`
 
