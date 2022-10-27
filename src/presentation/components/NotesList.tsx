@@ -14,7 +14,6 @@ export default function NotesList() {
 
   async function getNotes() {
     const response = await getActiveNotes()
-    console.log(response)
     response.error === true ? setNotesArray([]) 
     : setNotesArray(response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
   }

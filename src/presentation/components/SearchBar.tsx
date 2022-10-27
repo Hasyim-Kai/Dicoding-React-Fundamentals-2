@@ -1,7 +1,7 @@
 import PropTypes, { InferProps } from 'prop-types';
 import { useContext, useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import ThemeContext from '../../app/Context/Themecontext';
+import ThemeContext from '../../app/Context/ThemeContext';
 
 export default function SearchBar({ handlechangeKeyword }: InferProps<typeof SearchBar.propTypes>) {
     const {theme} = useContext(ThemeContext)

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import ThemeContext from "../../app/Context/Themecontext";
+import ThemeContext from "../../app/Context/ThemeContext";
 import { register } from "../../infrastructure/data/api-data";
 import { addNote } from "../../infrastructure/data/local-data";
 import { transitoinStyle } from "../utils/utils-style";

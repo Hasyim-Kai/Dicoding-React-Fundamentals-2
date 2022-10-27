@@ -8,6 +8,10 @@ function putAccessToken(accessToken: string) {
   return localStorage.setItem('accessToken', accessToken);
 }
 
+function delAccessToken() {
+  return localStorage.removeItem('accessToken');
+}
+
 async function fetchWithToken(url: string, options: any = {}) {
   return fetch(url, {
     ...options,
@@ -108,7 +112,7 @@ async function getArchivedNotes() {
   return { error: false, data: responseJson.data };
 }
 
-async function getNote(id: string) {
+async function getNote(id: string | undefined) {
   const response = await fetchWithToken(`${BASE_URL}/notes/${id}`);
   const responseJson = await response.json();
 
@@ -164,6 +168,7 @@ async function deleteNote(id: string) {
 export {
   getAccessToken,
   putAccessToken,
+  delAccessToken,
   login,
   register,
   getUserLogged,
