@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { delAccessToken } from "../../infrastructure/data/api-data";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
@@ -7,6 +8,7 @@ const Navbar = () => {
     const [isMobileNavOpen, setMobileNavOpen] = useState(false)
     function handleSetMobileNavOpen() { setMobileNavOpen(!isMobileNavOpen) }
     const navLinkStyle = ({ isActive }: { isActive: boolean }) => "flex px-4 py-2 " + (isActive ? "font-semibold" : "font-medium")
+    function logout() { delAccessToken() }
 
     return location.pathname === '/login' || location.pathname === '/register' ? null 
     : <header className='sticky top-0'>
@@ -28,9 +30,9 @@ const Navbar = () => {
                 <div className={`w-full mt-2 lg:inline-flex lg:w-auto lg:mt-0 ${isMobileNavOpen ? 'flex' : 'hidden'}`}>
                     <ul className="flex flex-col w-full space-y-2 lg:w-auto lg:flex-row lg:space-y-0 lg:space-x-2">
                         <NavLink to="/" className={navLinkStyle}>Notes</NavLink>
-                        <NavLink to="archieved" className={navLinkStyle}>Archieved</NavLink>
                         <NavLink to="new-note" className={navLinkStyle}>+ New Note</NavLink>
                         <ThemeToggle/>
+                        <NavLink onClick={logout} to="/login" className={navLinkStyle}>Logout</NavLink>                        
                     </ul>
                 </div>
             </div>
