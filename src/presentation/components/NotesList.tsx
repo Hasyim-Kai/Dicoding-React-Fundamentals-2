@@ -1,4 +1,3 @@
-import PropTypes, { InferProps } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getActiveNotes } from '../../infrastructure/data/api-data';

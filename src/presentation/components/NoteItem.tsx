@@ -1,8 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { transitoinStyle } from '../utils/utils-style'
 import PropTypes, { InferProps } from 'prop-types';
-import { archiveNote, deleteNote } from '../../infrastructure/data/local-data';
 import { formatDate } from '../../infrastructure/utils/DateFormatter';
 
 export default function NoteItem({note, isArchieved = false}: InferProps<typeof NoteItem.propTypes>) {

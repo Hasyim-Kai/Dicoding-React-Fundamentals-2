@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import UserContext from "../../app/Context/UserContext";
 import { delAccessToken } from "../../infrastructure/data/api-data";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
+    const { toggleUser } = useContext(UserContext)
     const location = useLocation();
     const [isMobileNavOpen, setMobileNavOpen] = useState(false)
     function handleSetMobileNavOpen() { setMobileNavOpen(!isMobileNavOpen) }
     const navLinkStyle = ({ isActive }: { isActive: boolean }) => "flex px-4 py-2 " + (isActive ? "font-semibold" : "font-medium")
-    function logout() { delAccessToken() }
+    function logout() { 
+        delAccessToken();
+        toggleUser({accessToken: undefined})
+        console.log(`AAAAAAAAAAAA`)
+    }
 
     return location.pathname === '/login' || location.pathname === '/register' ? null 
     : <header className='sticky top-0'>

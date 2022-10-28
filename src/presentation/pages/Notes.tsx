@@ -8,7 +8,7 @@ export default function Notes() {
   const {user} = useContext(UserContext)
 
   useEffect(() => { 
-    if(user.accessToken === undefined){ navigate('/login'); } 
+    if(user === undefined){ navigate('/login'); } 
   }, [])
   
   return <main className="">

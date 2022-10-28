@@ -21,7 +21,7 @@ export default function NoteDetail() {
 
   useEffect(() => { 
     getNoteDetail()
-    if(user.accessToken === undefined){ navigate('/login'); } 
+    if(user === undefined){ navigate('/login'); } 
   }, [])
 
   return <main className="max-w-3xl mx-12 lg:mx-auto my-12">

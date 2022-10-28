@@ -1,5 +1,5 @@
 import PropTypes, { InferProps } from 'prop-types';
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { useLocation } from 'react-router-dom';
 import ThemeContext from '../../app/Context/ThemeContext';
 

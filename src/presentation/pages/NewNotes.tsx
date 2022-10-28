@@ -22,7 +22,7 @@ export default function NewNotes() {
   }
 
   useEffect(() => { 
-    if(user.accessToken === undefined){ navigate('/login'); } 
+    if(user === undefined){ navigate('/login'); } 
   }, [])
 
   const inputStyle = `w-2/3 p-2 border-b focus:outline-none ${theme === 'light' ? 'border-black' : 'bg-gray-900 text-white border-white'}`
